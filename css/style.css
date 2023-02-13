@@ -1026,8 +1026,18 @@ h5 {
     display: block;
     margin-left: 0;
   }
+  #snackbar {
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, 0px);
+}
 }
 @media (max-width: 991px) {
+  #snackbar {
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, 0px);
+}
   .contact .contact-info-item,
   .portfolio .portfolio-item,
   .service .service-item {
@@ -1058,4 +1068,9 @@ h5 {
     width: 100%;
     height: auto;
   }
+  #snackbar {
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, 0px);
+}
 }
