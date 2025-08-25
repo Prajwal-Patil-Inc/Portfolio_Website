@@ -179,7 +179,7 @@ ul {
 }
 
 .aside .logo:hover {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
@@ -303,7 +303,7 @@ ul {
   width: 100%;
 }
 .aside .nav li a.active {
-    background-position: 0;
+  background-position: 0;
   color: var(--skin-color);
 }
 .aside .nav li a i {
@@ -1030,14 +1030,14 @@ h5 {
     left: 50%;
     position: fixed;
     transform: translate(-50%, 0px);
-}
+  }
 }
 @media (max-width: 991px) {
   #snackbar {
     left: 50%;
     position: fixed;
     transform: translate(-50%, 0px);
-}
+  }
   .contact .contact-info-item,
   .portfolio .portfolio-item,
   .service .service-item {
@@ -1072,5 +1072,48 @@ h5 {
     left: 50%;
     position: fixed;
     transform: translate(-50%, 0px);
+  }
 }
+
+.skills-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.skills-header h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  border-bottom: 4px solid #06b6d4; /* cyan-500 */
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.skills-header p {
+  font-size: 1.5rem;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* centers last row too */
+    gap: 15px; /* spacing between cards */
+  }
+
+.skill-card {
+  background-color: #0b1e3f;
+  color: #fff;
+  width: 150px;   /* fixed width */
+  height: 50px;   /* fixed height */
+  display: flex;  
+  align-items: center;  /* vertical center */
+  justify-content: center; /* horizontal center */
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+  transition: transform 0.3s;
+  cursor: pointer;
+  font-style: italic;
+}
+
+.skill-card:hover {
+  transform: scale(1.1);
 }
