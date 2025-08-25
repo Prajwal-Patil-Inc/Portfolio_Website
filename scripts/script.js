@@ -5,7 +5,7 @@ var typed = new Typed(".typing", {
     "Web Developer",
     "Full Stack Developer",
     "Cloud Engineer",
-    "Ansible Developer"
+    "Ansible Developer",
   ],
   typeSpeed: 100,
   BackSpeed: 60,
@@ -36,13 +36,13 @@ for (let i = 0; i < totalNavList; i++) {
     }
   });
 }
-function addBackSection(num){
-    allSection[num].classList.add("back-section");
+function addBackSection(num) {
+  allSection[num].classList.add("back-section");
 }
 function removeBackSection() {
-    for(let i=0; i<totalSection; i++){
-        allSection[i].classList.remove("back-section");
-    }
+  for (let i = 0; i < totalSection; i++) {
+    allSection[i].classList.remove("back-section");
+  }
 }
 function showSection(element) {
   for (let i = 0; i < totalSection; i++) {
@@ -98,116 +98,113 @@ var span_close_multi = document.getElementsByClassName("close_multi");
 
 // When the user clicks the button, open the modal
 function setDataIndex() {
-
-    for (i = 0; i < modal_btn_multi.length; i++)
-    {
-        modal_btn_multi[i].setAttribute('data-index', i);
-        modalparent[i].setAttribute('data-index', i);
-        span_close_multi[i].setAttribute('data-index', i);
-    }
+  for (i = 0; i < modal_btn_multi.length; i++) {
+    modal_btn_multi[i].setAttribute("data-index", i);
+    modalparent[i].setAttribute("data-index", i);
+    span_close_multi[i].setAttribute("data-index", i);
+  }
 }
 
+for (i = 0; i < modal_btn_multi.length; i++) {
+  modal_btn_multi[i].onclick = function () {
+    var ElementIndex = this.getAttribute("data-index");
+    modalparent[ElementIndex].style.display = "block";
+  };
 
-
-for (i = 0; i < modal_btn_multi.length; i++)
-{
-    modal_btn_multi[i].onclick = function() {
-        var ElementIndex = this.getAttribute('data-index');
-        modalparent[ElementIndex].style.display = "block";
-    };
-
-    // When the user clicks on <span> (x), close the modal
-    span_close_multi[i].onclick = function() {
-        var ElementIndex = this.getAttribute('data-index');
-        modalparent[ElementIndex].style.display = "none";
-    };
-
+  // When the user clicks on <span> (x), close the modal
+  span_close_multi[i].onclick = function () {
+    var ElementIndex = this.getAttribute("data-index");
+    modalparent[ElementIndex].style.display = "none";
+  };
 }
 
-window.onload = function() {
-
-    setDataIndex();
+window.onload = function () {
+  setDataIndex();
 };
 
-window.onclick = function(event) {
-    if (event.target === modalparent[event.target.getAttribute('data-index')]) {
-        modalparent[event.target.getAttribute('data-index')].style.display = "none";
-    }
+window.onclick = function (event) {
+  if (event.target === modalparent[event.target.getAttribute("data-index")]) {
+    modalparent[event.target.getAttribute("data-index")].style.display = "none";
+  }
 
-    // OLD CODE
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
+  // OLD CODE
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
 };
 
 //XXXXXXXXXXXXXXXXXXXXXXX    Modified old code    XXXXXXXXXXXXXXXXXXXXXXXXXX
 
 // Get the modal
 
-var modal = document.getElementById('myModal');
+var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
-var span = modal.getElementsByClassName("close")[0]; 
+var span = modal.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 
-btn.onclick = function() {
-
-    modal.style.display = "block";
-}
+btn.onclick = function () {
+  modal.style.display = "block";
+};
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
+span.onclick = function () {
+  modal.style.display = "none";
+};
 
 //Toast
 
 function myFunction() {
   var x = document.getElementById("snackbar");
   x.className = "show";
-  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  setTimeout(function () {
+    x.className = x.className.replace("show", "");
+  }, 3000);
 }
 
 //Email js
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
   emailjs.init("R0wm8POogOA_g-ArE");
 
-  const form = document.getElementById('contact-form');
-  const btn = document.getElementById('send-btn');
-  const snackbar = document.getElementById('snackbar');
+  const form = document.getElementById("contact-form");
+  const btn = document.getElementById("send-btn");
+  const snackbar = document.getElementById("snackbar");
 
   function toast(text) {
     snackbar.textContent = text;
-    snackbar.classList.add('show');
-    setTimeout(() => snackbar.classList.remove('show'), 3000);
+    snackbar.classList.add("show");
+    setTimeout(() => snackbar.classList.remove("show"), 3000);
   }
 
-  form.addEventListener('submit', async function (e) {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault(); // prevents default form submission
 
     // honeypot
-    if (document.getElementById('website').value) return;
+    if (document.getElementById("website").value) return;
 
     btn.disabled = true;
     const oldText = btn.textContent;
-    btn.textContent = 'Sending...';
+    btn.textContent = "Sending...";
 
     try {
-      await emailjs.sendForm('service_xiw9cep', 'template_aeeifwc', this);
+      await emailjs.sendForm(
+        "service_xiw9cep",
+        "template_aeeifwc",
+        this,
+        "R0wm8POogOA_g-ArE"
+      );
       form.reset();
-      toast('Thanks! Your message was sent.');
+      toast("Thanks! Your message was sent.");
     } catch (err) {
       console.error(err);
-      toast('Error sending message.');
+      toast("Error sending message.");
     } finally {
       btn.disabled = false;
       btn.textContent = oldText;
     }
   });
 });
-
