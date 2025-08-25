@@ -150,7 +150,7 @@ var modal = document.getElementById('myModal');
 var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
-var span = modal.getElementsByClassName("close")[0]; // Modified by dsones uk
+var span = modal.getElementsByClassName("close")[0]; 
 
 // When the user clicks on the button, open the modal
 
@@ -172,3 +172,42 @@ function myFunction() {
   x.className = "show";
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
+
+//Email js
+document.addEventListener('DOMContentLoaded', function() {
+  emailjs.init("R0wm8POogOA_g-ArE");
+
+  const form = document.getElementById('contact-form');
+  const btn = document.getElementById('send-btn');
+  const snackbar = document.getElementById('snackbar');
+
+  function toast(text) {
+    snackbar.textContent = text;
+    snackbar.classList.add('show');
+    setTimeout(() => snackbar.classList.remove('show'), 3000);
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault(); // prevents default form submission
+
+    // honeypot
+    if (document.getElementById('website').value) return;
+
+    btn.disabled = true;
+    const oldText = btn.textContent;
+    btn.textContent = 'Sending...';
+
+    try {
+      await emailjs.sendForm('service_xiw9cep', 'template_aeeifwc', this);
+      form.reset();
+      toast('Thanks! Your message was sent.');
+    } catch (err) {
+      console.error(err);
+      toast('Error sending message.');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = oldText;
+    }
+  });
+});
+

@@ -453,8 +453,8 @@
                             </h4>
                             <p class="timeline-text">
                               <li>
-                                Collaborated with other team members to develop
-                                an android app for demo project
+                                Collaborated on the design and development of
+                                Android applications using Java and Android SDK.
                               </li>
                             </p>
                           </div>
@@ -679,8 +679,8 @@
                           backend validation.
                         </li>
                         <li>
-                          Tech Stack: Python, Flask, React, Tailwind CSS,
-                          Daisy UI, MySQL, Agile
+                          Tech Stack: Python, Flask, React, Tailwind CSS, Daisy
+                          UI, MySQL, Agile
                         </li>
                         <li>
                           Link to source code:
@@ -698,12 +698,18 @@
               <!-- E-Waste END -->
 
               <!-- Android Todo -->
-              
+
               <div class="portfolio-item padd-15">
                 <div class="card">
-                  <img src="images/android.jpg" class="card-img-top" alt="..." />
+                  <img
+                    src="images/android.jpg"
+                    class="card-img-top"
+                    alt="..."
+                  />
                   <div class="card-body">
-                    <h5 class="card-title">Advanced Android Task Management Application</h5>
+                    <h5 class="card-title">
+                      Advanced Android Task Management Application
+                    </h5>
 
                     <a href="#" class="btn1 btn-primary myBtn_multi">Details</a>
                   </div>
@@ -722,14 +728,15 @@
                     <div class="modal_body modal-details">
                       <p class="card-text">
                         <li>
-                          Led the creation of a feature-rich Android To-do app with multimedia support, geofencing, and custom 
-templates.</li>
-                        <li>
-                          Resulted in 90% user task success rate in usability testing. 
+                          Led the creation of a feature-rich Android To-do app
+                          with multimedia support, geofencing, and custom
+                          templates.
                         </li>
                         <li>
-                          Tech Stack: Java, Android SDK, Jetpack Compose 
+                          Resulted in 90% user task success rate in usability
+                          testing.
                         </li>
+                        <li>Tech Stack: Java, Android SDK, Jetpack Compose</li>
                         <li>
                           Link to source code:
                           <a
@@ -975,65 +982,81 @@ templates.</li>
               I'M VERY RESPONSIVE TO MESSAGES
             </h4>
             <!-- Contact form -->
-            <div class="row">
-              <div class="contact-form padd-15">
-                <div class="row">
-                  <div class="form-item col-6 padd-15">
-                    <div class="form-group">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Name"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-item col-6 padd-15">
-                    <div class="form-group">
-                      <input
-                        type="email"
-                        class="form-control"
-                        placeholder="Email"
-                      />
-                    </div>
+            <form id="contact-form" class="contact-form padd-15">
+              <div class="row">
+                <div class="form-item col-6 padd-15">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      name="from_name"
+                      class="form-control"
+                      placeholder="Name"
+                      required
+                    />
                   </div>
                 </div>
-                <div class="row">
-                  <div class="form-item col-12 padd-15">
-                    <div class="form-group">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Subject"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="form-item col-12 padd-15">
-                    <div class="form-group">
-                      <textarea
-                        name=""
-                        id=""
-                        class="form-control"
-                        placeholder="Message"
-                      ></textarea>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="form-item col-12 padd-15">
-                    <div class="form-group">
-                      <div id="snackbar">
-                        This feature will be Available soon..
-                      </div>
-                      <button class="btn" onclick="myFunction()">
-                        Send Message
-                      </button>
-                    </div>
+                <div class="form-item col-6 padd-15">
+                  <div class="form-group">
+                    <input
+                      type="email"
+                      name="reply_to"
+                      class="form-control"
+                      placeholder="Email"
+                      required
+                    />
                   </div>
                 </div>
               </div>
-            </div>
+
+              <div class="row">
+                <div class="form-item col-12 padd-15">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      name="subject"
+                      class="form-control"
+                      placeholder="Subject"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-item col-12 padd-15">
+                  <div class="form-group">
+                    <textarea
+                      name="message"
+                      class="form-control"
+                      placeholder="Message"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- simple honeypot to deter bots -->
+              <input
+                type="text"
+                id="website"
+                name="website"
+                style="display: none"
+                tabindex="-1"
+                autocomplete="off"
+              />
+
+              <div class="row">
+                <div class="form-item col-12 padd-15">
+                  <div class="form-group">
+                    <div id="snackbar">
+                      This feature will be Available soon..
+                    </div>
+                    <button id="send-btn" type="submit" class="btn">
+                      Send Message
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
         </section>
         <!-- Contact Section End-->

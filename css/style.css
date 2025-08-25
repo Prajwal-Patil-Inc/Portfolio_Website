@@ -1117,3 +1117,6 @@ h5 {
 .skill-card:hover {
   transform: scale(1.1);
 }
+
+#snackbar { opacity: 0; transition: opacity .2s ease; }
+#snackbar.show { opacity: 1; }
