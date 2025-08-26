@@ -371,7 +371,11 @@ h3.my-profession {
   margin: auto;
   border-radius: 5px;
   height: 500px;
+  transition: transform 0.1s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
+
 /* About */
 .about .about-content {
   flex: 0 0 100%;

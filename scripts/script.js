@@ -143,18 +143,18 @@ var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
-var span = modal.getElementsByClassName("close")[0];
+//var span = modal.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 
-btn.onclick = function () {
-  modal.style.display = "block";
-};
+// btn.onclick = function () {
+//   modal.style.display = "block";
+// };
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-  modal.style.display = "none";
-};
+// span.onclick = function () {
+//   modal.style.display = "none";
+// };
 
 //Toast
 
@@ -165,6 +165,28 @@ function myFunction() {
     x.className = x.className.replace("show", "");
   }, 3000);
 }
+
+const card = document.querySelector('.home-img');
+const img = card.querySelector('img');
+
+card.addEventListener('mousemove', (e) => {
+  const rect = card.getBoundingClientRect();
+  const x = e.clientX - rect.left;   // mouse X inside element
+  const y = e.clientY - rect.top;    // mouse Y inside element
+
+  const centerX = rect.width / 2;
+  const centerY = rect.height / 2;
+
+  // max tilt in degrees
+  const rotateX = ((y - centerY) / centerY) * 10;
+  const rotateY = ((x - centerX) / centerX) * 10;
+
+  img.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+});
+
+card.addEventListener('mouseleave', () => {
+  img.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+});
 
 // Initialize EmailJS
 emailjs.init("R0wm8POogOA_g-ArE"); // your public key
@@ -195,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Send form using EmailJS
       await emailjs.sendForm(
         'service_xiw9cep',       // your Service ID
-        'template_aeeifwc',      // your Template ID
+        'template_bxvkd7j',      // your Template ID
         this,                    // form element
         'R0wm8POogOA_g-ArE'      // your Public Key
       );
@@ -210,4 +232,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+
 
