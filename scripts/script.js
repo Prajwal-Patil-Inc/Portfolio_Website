@@ -166,45 +166,48 @@ function myFunction() {
   }, 3000);
 }
 
-//Email js
-document.addEventListener("DOMContentLoaded", function () {
-  emailjs.init("R0wm8POogOA_g-ArE");
+// Initialize EmailJS
+emailjs.init("R0wm8POogOA_g-ArE"); // your public key
 
-  const form = document.getElementById("contact-form");
-  const btn = document.getElementById("send-btn");
-  const snackbar = document.getElementById("snackbar");
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contact-form');
+  const btn = document.getElementById('send-btn');
+  const snackbar = document.getElementById('snackbar');
 
-  function toast(text) {
+  function toast(text, isError = false) {
     snackbar.textContent = text;
-    snackbar.classList.add("show");
-    setTimeout(() => snackbar.classList.remove("show"), 3000);
+    snackbar.style.background = isError ? "#e74c3c" : "#2ecc71"; // red for error, green for success
+    snackbar.classList.add('show');
+    setTimeout(() => snackbar.classList.remove('show'), 3000);
   }
 
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault(); // prevents default form submission
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault(); // stop default page reload
 
     // honeypot
-    if (document.getElementById("website").value) return;
+    if (document.getElementById('website').value) return;
 
     btn.disabled = true;
     const oldText = btn.textContent;
-    btn.textContent = "Sending...";
+    btn.textContent = 'Sending...';
 
     try {
+      // Send form using EmailJS
       await emailjs.sendForm(
-        "service_xiw9cep",
-        "template_aeeifwc",
-        this,
-        "R0wm8POogOA_g-ArE"
+        'service_xiw9cep',       // your Service ID
+        'template_aeeifwc',      // your Template ID
+        this,                    // form element
+        'R0wm8POogOA_g-ArE'      // your Public Key
       );
       form.reset();
-      toast("Thanks! Your message was sent.");
+      toast('Thanks! Your message was sent.');
     } catch (err) {
       console.error(err);
-      toast("Error sending message.");
+      toast('Error sending message.', true);
     } finally {
       btn.disabled = false;
       btn.textContent = oldText;
     }
   });
 });
+
