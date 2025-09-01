@@ -794,6 +794,8 @@ li {
   background-clip: border-box;
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 .card-body {
   background-color: var(--bg-black-100);
@@ -804,6 +806,8 @@ li {
 }
 .card:hover {
   box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 .card-img-top {
   border-bottom: 1px solid black;
