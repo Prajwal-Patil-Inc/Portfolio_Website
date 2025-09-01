@@ -1,9 +1,9 @@
 /* typing animation */
 var typed = new Typed(".typing", {
   strings: [
-    "",
+    "Back-End Developer",
     "Web Developer",
-    "Full Stack Developer",
+    "Full-Stack Developer",
     "Cloud Engineer",
     "Ansible Developer",
   ],
@@ -232,6 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
 
 
 
