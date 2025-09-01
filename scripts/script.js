@@ -1,11 +1,12 @@
 /* typing animation */
 var typed = new Typed(".typing", {
   strings: [
+    "",
     "Back-End Developer",
-    "Web Developer",
     "Full-Stack Developer",
     "Cloud Engineer",
     "Ansible Developer",
+    "Machine Learning Enthusiast"
   ],
   typeSpeed: 100,
   BackSpeed: 60,
